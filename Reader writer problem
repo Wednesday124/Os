@@ -1,0 +1,64 @@
+TO IMPLEMENT READER/WRITER PROBLEM USING SEMAPHORE
+#include<stdio.h>
+#include<conio.h>
+int x=1,rc=0,readcount=1;
+void p (int*a)
+{
+while(*a==0)
+{
+printf("Busy Wait");
+}
+*a=*a-1;
+}
+void v(int*b)
+{
+*b*b+1;
+}
+void pl(int*c)
+{
+while(*c=0)
+{
+printf("Busy Wait");
+}
+*c=*c-1;
+}
+void v1 (int*d)
+{
+*d=*d+1;
+void reader()
+{
+int flag=1;
+
+while(flag==1)
+{
+p(&readcount);
+rc=rc+1;
+if(rc=-1)
+pl(&x);
+v(&readcount);
+printf("\nReader is reading");
+p(&readcount);
+rc=rc-1;
+if(rc==0)
+vl(&x);
+v(&readcount);
+flag=0;
+}
+}
+void writer()
+{
+pl(&x);
+printf("\nWriter is writing");
+vl(&x);
+}
+void main()
+{
+printf("\nReaders-Writers Problem");
+printf("\n*
+*******\n");
+reader();
+writer();
+reader();
+writer();
+getch();
+}
