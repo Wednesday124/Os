@@ -1,0 +1,55 @@
+PROGRAM FOR INTER-PROCESS COMMUNICATION
+#include<stdio.h>
+#include<conio.h>
+struct segtab
+{
+int limit,base;
+}st[50];
+int main()
+{
+int n,i,segno,offset,paddr;
+printf("\nInter-Process Communication Using Shared Memory");
+printf("\n
+printf("\nEnter the no of segments: ");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+printf("\nEnter the base for segment %d: ",i);
+scanf("%d", &st[i].base);
+printf("\nEnter the limit for the segment %d: ",i);
+scanf("%d", &st[i].limit);
+}
+**");
+printf("\nEnter the segment no and offset to produce physical address: ");
+scanf("%d %d",&segno,&offset);
+if(segno>=n)
+{
+printf("\nSegment number invalid");
+getch();
+return 0;
+}
+if(offset>st[segno].limit)
+{
+printf("\nOffset is not in the limit");
+getch();
+return 0;
+}
+paddr=st[segno].base+offset;
+printf("\nPhysical address for the given segment is: %d",paddr);
+printf("\nEnter the segment no and offset to produce physical address: ");
+scanf("%d %d", &segno,&offset);
+if(segno>=n)
+{
+printf("\nSegment number invalid");
+getch();
+return 0;
+}
+if(offset>st[segno].limit)
+{
+printf("\nOffset is not in the limit");
+getch();
+return 0;
+}
+getch();
+return 0;
+}
