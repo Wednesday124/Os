@@ -2,9 +2,10 @@ FIRST IN FIRST OUT ALGORITHM
 #include<stdio.h>
 #include<conio.h>
 void main()
+{
 int i,j,n,a[50], frame[10],no,k,avail,count=0;
 printf("\nFIFO PAGE REPLACEMENT ALGORITHM");
-printf("\n********
+printf("\n*******************************");
 printf("\nENTER THE NUMBER OF PAGES: ");
 scanf("%d",&n);
 printf("ENTER THE PAGE NUMBER: ");
@@ -23,14 +24,12 @@ for(i=1;i<=n;i++)
 printf("%d\t\t",a[i]);
 avail=0;
 for(k=0;k<no;k++)
-if(frame[k]=a[i])
+if(frame[k]==a[i])
 avail=1;
-if(avail=0)
-REDMI 12 5G
-13/09/2024 08:53
+if(avail==0)
 {
 frame[j]=a[i];
-j-(j+1)%no;
+j=(j+1)%no;
 count++;
 for(k=0;k<no;k++)
 printf("%d\t",frame[k]);
@@ -39,4 +38,4 @@ printf("\n");
 }
 printf("Page Fault: %d",count);
 getch();
- }
+}
