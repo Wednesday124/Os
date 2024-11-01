@@ -14,7 +14,7 @@ void v(int*b)
 {
 *b=*b+1;
 }
-void pl(int*c)
+void p1(int*c)
 {
 while(*c==0)
 {
@@ -25,6 +25,7 @@ printf("Busy Wait");
 void v1 (int*d)
 {
 *d=*d+1;
+}
 void reader()
 {
 int flag=1;
@@ -33,22 +34,22 @@ while(flag==1)
 p(&readcount);
 rc=rc+1;
 if(rc==1)
-pl(&x);
+p1(&x);
 v(&readcount);
 printf("\nReader is reading");
 p(&readcount);
 rc=rc-1;
 if(rc==0)
-vl(&x);
+v1(&x);
 v(&readcount);
 flag=0;
 }
 }
 void writer()
 {
-pl(&x);
+p1(&x);
 printf("\nWriter is writing");
-vl(&x);
+v1(&x);
 }
 void main()
 {
